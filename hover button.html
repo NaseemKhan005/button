@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Hover Button</title>
+   <style>
+      body{
+         background-color: rgb(50, 70, 90);
+      }
+      button{
+         position:absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         background-color:transparent;
+         border: none;
+         font-size: 25px;
+         font-family: 'Lucida Sans';
+         color: #ddd;
+         padding: 13px 35px;
+         cursor: pointer;
+         z-index: 1;
+         transition: color 0.1s 0.85s;
+      }
+      button:hover{color: rgba(8, 25, 48, 0.765);}
+      
+      /* before */
+      button::before{
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 0;
+         height: 2px;
+         background-color: #fff;
+         z-index: -1;
+         transition: all 0.3s 0.2s;
+      }
+      button:hover::before{
+         width: 100%;
+      }
+
+      /* after */
+      button::after{
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 0;
+         background-color: rgb(41, 122, 154);
+         transition: all 0.5s 0.5s;
+         z-index: -2;
+      }
+      button:hover::after{
+         height: 100%;
+      }
+   </style>
+</head>
+<body>
+   <button>Hover Me</button>
+</body>
+</html>
